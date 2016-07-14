@@ -20,7 +20,7 @@ ENV \
   TERM="$TERM"
 
 ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/entrypoint"]
-CMD ["/app/app.sh"]
+CMD ["$HOME/app.sh"]
 
 WORKDIR $HOME
 
@@ -35,5 +35,6 @@ RUN curl -fsSL https://raw.githubusercontent.com/elifarley/cross-installer/maste
   xinstall add tar && \
   xinstall cleanup
 
-COPY app.sh $HOME/
-RUN chmod +x "$HOME"/app.sh && chown "$_USER":"$_USER" "$HOME"/app.sh
+ONBUILD ENV BASE_IMAGE=elifarley/docker-cep:alpine-jdk-8
+ONBUILD COPY app.sh $HOME/
+ONBUILD RUN chmod +x "$HOME"/app.sh && chown "$_USER":"$_USER" "$HOME"/app.sh
