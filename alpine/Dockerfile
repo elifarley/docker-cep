@@ -22,7 +22,8 @@ ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/entrypoint"]
 
 WORKDIR $HOME
 
-RUN curl -fsSL https://raw.githubusercontent.com/elifarley/cross-installer/master/install.sh | sh && \
+RUN apk --update add ca-certificates curl && \
+  curl -fsSL https://raw.githubusercontent.com/elifarley/cross-installer/master/install.sh | sh && \
   xinstall save-image-info && \
   xinstall add gosu "$GOSU_VERSION" && \
   xinstall add tini "$TINI_VERSION" && \
