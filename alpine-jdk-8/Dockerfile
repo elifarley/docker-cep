@@ -36,7 +36,5 @@ RUN curl -fsSL https://raw.githubusercontent.com/elifarley/cross-installer/maste
   xinstall cleanup
 
 ONBUILD ENV BASE_IMAGE=elifarley/docker-cep:alpine-jdk-8
-ONBUILD COPY *app*.sh $HOME/
 ONBUILD RUN \
-  xinstall save-image-info && \
-  chmod +x "$HOME"/*app*.sh && chown "$_USER":"$_USER" "$HOME"/*app.sh
+  xinstall save-image-info
