@@ -4,7 +4,7 @@ ENV BASE_IMAGE=elifarley/docker-oracle-jdk6
 
 ARG APK_PACKAGES="rsync sudo"
 ARG TINI_VERSION='v0.5.0'
-ARG GOSU_VERSION='1.5'
+ARG GOSU_VERSION='1.6'
 
 ARG _USER=app
 ARG HOME=/$_USER
