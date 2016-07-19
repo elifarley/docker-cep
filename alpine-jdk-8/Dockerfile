@@ -2,8 +2,7 @@ FROM elifarley/docker-alpine-oraclejdk8
 MAINTAINER Elifarley <elifarley@gmail.com>
 ENV BASE_IMAGE=elifarley/docker-alpine-oraclejdk8
 
-ARG APK_PACKAGES="rsync sudo shadow bash"
-ARG GOSU_VERSION='1.5'
+ARG APK_PACKAGES="su-exec rsync sudo shadow bash"
 ARG TINI_VERSION='v0.5.0'
 
 ARG _USER=app
@@ -26,7 +25,6 @@ WORKDIR $HOME
 
 RUN curl -fsSL https://raw.githubusercontent.com/elifarley/cross-installer/master/install.sh | sh && \
   xinstall save-image-info && \
-  xinstall add gosu "$GOSU_VERSION" && \
   xinstall add tini "$TINI_VERSION" && \
   xinstall add entrypoint && \
   xinstall add-user "$_USER" && \
