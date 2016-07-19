@@ -2,7 +2,7 @@ FROM elifarley/docker-oracle-jdk6
 MAINTAINER Elifarley <elifarley@gmail.com>
 ENV BASE_IMAGE=elifarley/docker-oracle-jdk6
 
-ARG APK_PACKAGES="rsync sudo bash"
+ARG APK_PACKAGES="rsync sudo"
 ARG TINI_VERSION='v0.5.0'
 ARG GOSU_VERSION='1.5'
 
