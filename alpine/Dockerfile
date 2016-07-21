@@ -16,7 +16,7 @@ ENV \
   TZ="$TZ" \
   TERM="$TERM"
 
-ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/entrypoint"]
+ENTRYPOINT ["tini", "--", "entrypoint"]
 # 'entrypoint' will run $HOME/app.sh by default
 
 WORKDIR $HOME
