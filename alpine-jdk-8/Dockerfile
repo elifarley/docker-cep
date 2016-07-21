@@ -18,8 +18,8 @@ ENV \
   JAVA_TOOL_OPTIONS="$JAVA_TOOL_OPTIONS" \
   TERM="$TERM"
 
-ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/entrypoint"]
-# 'entrypoint' will run $HOME/app.sh by default
+ENTRYPOINT ["tini", "--", "entrypoint"]
+# 'entrypoint' will run ~app/app.sh by default
 
 WORKDIR $HOME
 
