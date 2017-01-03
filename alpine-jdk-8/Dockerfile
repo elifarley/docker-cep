@@ -3,7 +3,7 @@ MAINTAINER Elifarley <elifarley@gmail.com>
 ENV BASE_IMAGE=elifarley/docker-alpine-oraclejdk8
 
 ARG APK_PACKAGES="su-exec rsync sudo shadow bash"
-ARG TINI_VERSION='v0.5.0'
+ARG TINI_VERSION='v0.13.2'
 
 ARG _USER=app
 ARG HOME=/$_USER
