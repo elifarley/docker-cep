@@ -1,9 +1,9 @@
-FROM alpine:3.4
+FROM alpine:3.5
 MAINTAINER Elifarley <elifarley@gmail.com>
-ENV BASE_IMAGE=alpine:3.4
+ENV BASE_IMAGE=alpine:3.5
 
 ARG APK_PACKAGES="su-exec rsync sudo shadow bash"
-ARG TINI_VERSION='v0.5.0'
+ARG TINI_VERSION='v0.13.2'
 
 ARG _USER=app
 ARG HOME=/$_USER
