@@ -2,7 +2,7 @@ FROM elifarley/docker-debian-jdk-8
 MAINTAINER Elifarley <elifarley@gmail.com>
 ENV BASE_IMAGE=elifarley/docker-debian-jdk-8
 
-ARG APT_PACKAGES="rsync sudo"
+ARG APT_PACKAGES=""
 ARG TINI_VERSION='v0.13.2'
 ARG GOSU_VERSION='1.10'
 
