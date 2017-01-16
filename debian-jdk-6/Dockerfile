@@ -3,8 +3,8 @@ MAINTAINER Elifarley <elifarley@gmail.com>
 ENV BASE_IMAGE=elifarley/docker-oracle-jdk6
 
 ARG APK_PACKAGES="rsync sudo"
-ARG TINI_VERSION='v0.5.0'
-ARG GOSU_VERSION='1.6'
+ARG TINI_VERSION='v0.13.2'
+ARG GOSU_VERSION='1.10'
 
 ARG _USER=app
 ARG HOME=/$_USER
