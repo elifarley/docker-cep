@@ -1,4 +1,4 @@
-FROM docker-cep:debian-slim-copycontext
+FROM elifarley/docker-cep:debian-slim-copycontext
 MAINTAINER Elifarley Cruz <elifarley@gmail.com>
 ENV BASE_IMAGE=docker-cep:debian-slim-copycontext
 
