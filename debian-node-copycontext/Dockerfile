@@ -2,11 +2,10 @@ FROM elifarley/docker-cep:debian-slim-copycontext
 MAINTAINER Elifarley Cruz <elifarley@gmail.com>
 ENV BASE_IMAGE=docker-cep:debian-slim-copycontext
 
-ARG NODE_VERSION=6.9.4
-ARG NPM_CONFIG_LOGLEVEL=info
-
 ONBUILD COPY . "$HOME"/
-ONBUILD ENV BASE_IMAGE=elifarley/docker-cep:debian-node-copycontext
+ONBUILD ENV BASE_IMAGE=elifarley/docker-cep:debian-node-copycontext \
+NODE_VERSION="6.9.4" \
+NPM_CONFIG_LOGLEVEL=info
 ONBUILD RUN \
   xinstall save-image-info && \
   xinstall add-pkg xz-utils make gcc g++ python && \
