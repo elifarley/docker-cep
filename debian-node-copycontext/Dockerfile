@@ -13,4 +13,5 @@ ONBUILD RUN \
   npm --no-color install && \
   rm -rf /root/.npm && npm uninstall -g npm && \
   xinstall remove-pkg xz-utils make gcc g++ python && \
+  xinstall cleanup && \
   chown -R "$_USER":nogroup "$HOME" && chmod -f +x "$HOME"/app.sh
