@@ -7,7 +7,6 @@ ARG GOSU_VERSION='1.10'
 ARG NODE_VERSION=6.9.4
 ARG NPM_CONFIG_LOGLEVEL=info
 
-ARG APT_PACKAGES="xz-utils"
 ARG _USER=app
 ARG HOME=/$_USER
 ARG LANG=en_US.UTF-8
@@ -38,15 +37,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates
   xinstall add entrypoint && \
   xinstall add-user "$_USER" && \
   xinstall add timezone && \
-  xinstall add-pkg && \
-  xinstall add node "$NODE_VERSION" && xinstall remove-pkg xz-utils && \
   xinstall cleanup
 
 COPY $_USER.sh $HOME/
 
 ONBUILD COPY . "$HOME"/
-ONBUILD ENV BASE_IMAGE=elifarley/docker-cep:debian-jdk-8
+ONBUILD ENV BASE_IMAGE=elifarley/docker-cep:debian-node-copycontext
 ONBUILD RUN \
   xinstall save-image-info && \
+  xinstall add-pkg xz-utils make gcc g++ python && \
+  xinstall add node "$NODE_VERSION" && \
   npm --no-color install && \
+  rm -rf /root/.npm && npm uninstall -g npm && \
+  xinstall remove-pkg xz-utils make gcc g++ python && \
   chown -R "$_USER":nogroup "$HOME" && chmod -f +x "$HOME"/app.sh
