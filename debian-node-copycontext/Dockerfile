@@ -4,7 +4,7 @@ ENV BASE_IMAGE=docker-cep:debian-slim-copycontext
 
 ONBUILD COPY . "$HOME"/
 ONBUILD ENV BASE_IMAGE=elifarley/docker-cep:debian-node-copycontext \
-NODE_VERSION="6.9.4" \
+NODE_VERSION="6.11.2" \
 NPM_CONFIG_LOGLEVEL=info
 ONBUILD RUN \
   xinstall save-image-info && \
